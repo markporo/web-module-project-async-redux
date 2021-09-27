@@ -11,14 +11,14 @@ const initialState = {
 
         artistViewUrl: "https://music.apple.com/us/artist/sure-sure/1087919613?uo=4",
     }, {
-        artistName: "Poro",
+        artistName: "Drake",
         country: "USA",
 
-        artworkUrl100: "https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/1b/e3/9d/1be39d02-cb38-b82b-d26e-df21dd53a802/source/100x100bb.jpg",
-        artworkUrl60: "https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/1b/e3/9d/1be39d02-cb38-b82b-d26e-df21dd53a802/source/60x60bb.jpg",
-        artworkUrl30: "https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/1b/e3/9d/1be39d02-cb38-b82b-d26e-df21dd53a802/source/30x30bb.jpg",
+        artworkUrl100: "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/b2/31/57/b23157b2-2194-467c-d9ad-a40f8fa4a383/source/100x100bb.jpg",
+        artworkUrl60: "",
+        artworkUrl30: "",
 
-        artistViewUrl: "https://music.apple.com/us/artist/poro/151144689?uo=4",
+        artistViewUrl: "https://music.apple.com/us/artist/drake/271256?uo=4",
     }],
     isFetching: false,
     error: ''
@@ -27,20 +27,19 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case (FETCH_TERMS_LOADING):
+        case FETCH_TERMS_LOADING:
             return ({
                 ...state,
                 error: '',
                 isFetching: true,
             })
-        case (FETCH_TERMS_SUCCESS):
+        case FETCH_TERMS_SUCCESS:
             return ({
                 ...state,
-                error: '',
                 isFetching: false,
                 termResults: action.payload,
             })
-        case (FETCH_TERMS_FAIL):
+        case FETCH_TERMS_FAIL:
             return ({
                 ...state,
                 isFetching: false,

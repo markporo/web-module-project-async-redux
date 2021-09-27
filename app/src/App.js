@@ -1,21 +1,21 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Cards from './components/cards';
 import { getItunesTermResults } from "./actions/index"
 
 function App(props) {
   const [inputValue, setInputValue] = useState("");
-  const { error, isFetching, termResults } = props;
+  const { isFetching, termResults } = props;
 
-  useEffect(() => {
-    if (error) {
-      return <h2>We got an error trying to search for that: {error}</h2>;
-    }
-    if (isFetching) {
-      return <h2>Fetching person for ya!</h2>;
-    }
-  });
+  // useEffect(() => {
+  //   if (error) {
+  //     return <h2>We got an error trying to search for that: {error}</h2>;
+  //   }
+  //   if (isFetching) {
+  //     return <h2>Fetching person for ya!</h2>;
+  //   }
+  // });
 
 
   const handleInputChange = (e) => {
@@ -42,8 +42,8 @@ function App(props) {
         </div>
       </nav>
       <div>
-        <section className="arrayOfCards">
-          <Cards termResults={termResults} />
+        <section>
+          {isFetching ? "Getting Itunes Results..." : <Cards termResults={termResults} />}
         </section>
       </div>
     </div>
